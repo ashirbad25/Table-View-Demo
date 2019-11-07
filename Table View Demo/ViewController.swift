@@ -13,9 +13,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         return 2
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 20
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "This is the cell for \(indexPath.row)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "normalCell", for: indexPath)
+        cell.textLabel?.text = "This is row number \(indexPath.row)"
         return cell
     }
     
